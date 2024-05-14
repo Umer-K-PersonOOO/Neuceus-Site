@@ -33,25 +33,6 @@ export default function EditScreenInfo({ path }: { path: string }) {
   const [error, setError] = useState<string | null>(null);
 
   function convertTo12Hour(timeStr: string): string {
-    // Check for empty time strings
-    if (!timeStr) return "";
-
-    // Split the time string into hours and minutes
-    const [hours, minutes] = timeStr.split(":");
-
-    // Convert hours part to a number to make comparisons and calculations easier
-    const hoursNumeric = parseInt(hours, 10);
-
-    // Determine AM or PM suffix
-    const suffix = hoursNumeric >= 12 ? "PM" : "AM";
-
-    // Convert hour to 12-hour format
-    const hoursIn12 = hoursNumeric % 12 || 12; // Handles the case of 0 hours, which should be 12 AM
-
-    // Return the formatted time string
-    return `${hoursIn12}:${minutes} ${suffix}`;
-  }
-  function convertTo12Hour(timeStr: string): string {
     if (!timeStr) return "";
     const [hours, minutes] = timeStr.split(":");
     const hoursNumeric = parseInt(hours, 10);
